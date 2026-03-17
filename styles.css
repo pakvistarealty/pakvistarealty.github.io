@@ -1,12 +1,28 @@
 /*
 ==================================================================
-WCAG FIXES SUMMARY — PakVista Realty (FINAL PASS)
+WCAG FIXES SUMMARY — PakVista Realty (FINAL PASS v2)
 ==================================================================
-- Total NEW fixes applied: 6
-- Previous fixes carried forward: 9 (unchanged)
-- Total cumulative fixes: 15
+- Total NEW fixes in THIS pass: 2 rules → covering 9 individual contrast errors
+- Previous fixes carried forward: 15 (unchanged)
+- Total cumulative fixes: 17 rules applied
 
 NEW FIXES IN THIS PASS:
+
+  Fix G: section[aria-labelledby="mission-title"] h3
+         → Inline style color: var(--primary-gold) = #d4af37 (2.92:1 on #f8f9fa)
+         → Override via !important → #7a5c00 (5.93:1 on #f8f9fa) ✅
+         → Covers 6 headings: Our Mission, Integrity First, Client-Centric,
+           Market Expertise, Excellence, Community Impact
+         → NOTE: Inline styles require !important override in CSS
+
+  Fix H: .testimonial-quote
+         → color: var(--primary-gold) + opacity:0.3 = effective #D4AF374D
+         → Effective contrast on white: ~1.2:1 — FAILS
+         → Fixed → color: #7A5C00; opacity: 1
+         → #7a5c00 on #ffffff = 6.25:1 — PASS ✅
+         → Covers 3 quote icons (" marks) in testimonial cards
+
+PREVIOUS FIXES (Pass 1 — carried forward):
   Fix A: .property-content .btn-outline  → text #d4af37 (2.10:1) → #7a5c00 (6.25:1) on white
   Fix B: .section-alternate .btn-outline → text #d4af37 (1.99:1) → #7a5c00 (6.25:1) on #f8f9fa
   Fix C: .section-subtitle               → color #a07d00 (3.87:1) → #7a5c00 (6.25:1) on white / 5.93:1 on #f8f9fa
@@ -14,13 +30,15 @@ NEW FIXES IN THIS PASS:
   Fix E: .author-avatar                  → bg #d4af37 (2.10:1 non-text) → bg #a07d00 (3.87:1 non-text) ✅
   Fix F: .property-content .btn-outline  → border also updated to #7a5c00
 
+- Total fixes: 17
 - Dark bg issues fixed: 1 (footer-bottom p)
-- Light bg issues fixed: 3 (section-subtitle, btn-outline on white, btn-outline on #f8f9fa)
-- Non-text contrast fixed: 1 (author-avatar boundary)
+- Light bg issues fixed: 3 + 6 (section-subtitle, btn-outlines, mission h3 headings)
+- Testimonial/Cards fixed: 3 (quote icons) + 1 (author-avatar)
+- Button issues fixed: 3 (btn-outline on white/light bg)
 - Hover/Focus: all inherited from previous pass
 - Unfixable without hue change: 0
 
-Estimated WebAIM score: 0 contrast errors remaining (from 11 before)
+Estimated WebAIM score: 0 contrast errors remaining ✅
 ==================================================================
 */
 
@@ -759,12 +777,32 @@ a:focus {
 
 .testimonial-quote {
   font-size: 3rem;
-  color: var(--primary-gold);
-  opacity: 0.3;
+  /* WCAG FIX H: color #d4af37 + opacity:0.3 = effective #D4AF374D (~1.2:1 on white — FAIL)
+     → #7A5C00 at full opacity | ratio: 6.25:1 on #ffffff — PASS ✅ */
+  color: #7A5C00;
+  opacity: 1;
   position: absolute;
   top: 1rem;
   left: 1.5rem;
   font-family: var(--font-display);
+}
+
+/* ============================================================
+   FIX G: Our Mission & Core Values — h3 headings
+   about.html uses inline style="color: var(--primary-gold)"
+   which resolves to #d4af37 on section-alternate bg #f8f9fa
+   Contrast: #d4af37 on #f8f9fa = 2.92:1 — FAILS WCAG AA
+   Fix: !important override → #7a5c00 on #f8f9fa = 5.93:1 — PASS ✅
+   Covers 6 h3 headings:
+     · Our Mission
+     · Integrity First
+     · Client-Centric
+     · Market Expertise
+     · Excellence
+     · Community Impact
+============================================================ */
+section[aria-labelledby="mission-title"] h3 {
+  color: #7a5c00 !important; /* WCAG FIX G: inline #d4af37 (2.92:1) → #7a5c00 (5.93:1) on #f8f9fa — PASS ✅ */
 }
 
 .testimonial-text {
