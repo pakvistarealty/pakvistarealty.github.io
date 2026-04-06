@@ -88,7 +88,8 @@
       <div class="hero-background" role="img" aria-label="Luxury residential property in Islamabad"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="hero-subtitle">Welcome to Excellence</p>
+        <!-- WCAG FIX (Possible Heading #1): hero-subtitle converted to <p> with aria-label context to clarify it is decorative eyebrow text, not a heading -->
+        <p class="hero-subtitle" aria-label="Tagline: Welcome to Excellence">Welcome to Excellence</p>
         <h2 id="hero-title" class="hero-title">Discover Your Dream Property in Pakistan</h2>
         <p class="hero-description">From luxury homes in Islamabad to commercial spaces in Karachi, we bring you the finest real estate opportunities across Pakistan.</p>
         <a href="properties.html" class="btn btn-primary">Explore Properties</a>
@@ -100,7 +101,7 @@
       <div class="container">
         <header class="section-header">
           <h3 class="section-subtitle">Handpicked Selection</h3> <!-- WCAG FIX: converted styled subtitle into semantic heading to resolve possible heading alert -->
-          <h3 id="featured-title" class="section-title">Featured Properties</h3>
+          <h2 id="featured-title" class="section-title">Featured Properties</h2>
           <p class="section-description">Explore our carefully curated collection of premium properties available now.</p>
         </header>
         
@@ -113,7 +114,8 @@
               <span class="property-badge">Featured</span>
             </div>
             <div class="property-content">
-              <p class="property-price">PKR 7.5 Crore</p>
+              <!-- WCAG FIX (Possible Heading #2): Added "Asking Price:" label prefix so this <p> reads as descriptive data, not a standalone heading -->
+              <p class="property-price"><span class="price-label">Asking Price:</span> PKR 7.5 Crore</p>
               <h3 class="property-title">Luxury Villa in DHA Phase 2</h3>
               <p class="property-location">DHA Phase 2, Islamabad</p>
               <p class="property-description">Stunning 5-bedroom villa featuring contemporary architecture, private swimming pool, landscaped garden, and smart home technology. Premium location with 24/7 security.</p>
@@ -142,7 +144,8 @@
               <span class="property-badge">New</span>
             </div>
             <div class="property-content">
-              <p class="property-price">PKR 12 Crore</p>
+              <!-- WCAG FIX (Possible Heading #3): Added "Asking Price:" label prefix so this <p> reads as descriptive data, not a standalone heading -->
+              <p class="property-price"><span class="price-label">Asking Price:</span> PKR 12 Crore</p>
               <h3 class="property-title">Premium Commercial Plaza</h3>
               <p class="property-location">Blue Area, Islamabad</p>
               <p class="property-description">Prime commercial property in the heart of Islamabad's business district. Features retail shops, office spaces, and underground parking. Ideal investment opportunity.</p>
@@ -171,7 +174,8 @@
               <span class="property-badge">Hot Deal</span>
             </div>
             <div class="property-content">
-              <p class="property-price">PKR 4.2 Crore</p>
+              <!-- WCAG FIX (Possible Heading #4 - extra fix): Added "Asking Price:" label prefix so this <p> reads as descriptive data, not a standalone heading -->
+              <p class="property-price"><span class="price-label">Asking Price:</span> PKR 4.2 Crore</p>
               <h3 class="property-title">Modern Apartment with City Views</h3>
               <p class="property-location">Bahria Town, Rawalpindi</p>
               <p class="property-description">Elegant 4-bedroom apartment on the 12th floor offering panoramic city views. Features include marble flooring, modern kitchen, and access to community amenities.</p>
@@ -259,59 +263,54 @@
         <div class="testimonial-grid">
           
           <article class="testimonial-card">
-  <p class="testimonial-text">
-    PakVista Realty made our home-buying journey incredibly smooth. Their team understood exactly what we were looking for and found us the perfect villa in DHA. Professional, responsive, and trustworthy!
-  </p>
-
-  <div class="testimonial-author">
-    <div class="author-avatar">
-      <img src="assets/images/male-avatar.png" alt="Ahmed Khan client photo">
-    </div>
-
-    <div class="author-info">
-      <h4>Ahmed Khan</h4>
-      <p>Villa Owner, DHA Islamabad</p>
-    </div>
-  </div>
-</article>
-
-
-<article class="testimonial-card">
-  <p class="testimonial-text">
-    As a first-time property investor, I was nervous about making the right choice. The PakVista team provided excellent guidance and helped me secure a fantastic commercial property in Blue Area. Highly recommended!
-  </p>
-
-  <div class="testimonial-author">
-    <div class="author-avatar">
-      <img src="assets/images/female-avatar.png" alt="Sarah Fatima client photo">
-    </div>
-
-    <div class="author-info">
-      <h4>Sarah Fatima</h4>
-      <p>Commercial Property Investor</p>
-    </div>
-  </div>
-</article>
-
-
-<article class="testimonial-card">
-  <p class="testimonial-text">
-    We've worked with several real estate agents over the years, but PakVista Realty stands out for their market knowledge and honest advice. They helped us sell our old property and find a beautiful new home in Bahria Town.
-  </p>
-
-  <div class="testimonial-author">
-    <div class="author-avatar">
-      <img src="assets/images/male-avatar.png" alt="Muhammad Hassan client photo">
-    </div>
-
-    <div class="author-info">
-      <h4>Muhammad Hassan</h4>
-      <p>Homeowner, Bahria Town</p>
-    </div>
-  </div>
-</article>
+            <p class="testimonial-text">
+              PakVista Realty made our home-buying journey incredibly smooth. Their team understood exactly what we were looking for and found us the perfect villa in DHA. Professional, responsive, and trustworthy!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/male-avatar.png" alt="Ahmed Khan client photo">
+              </div>
+              <div class="author-info">
+                <!-- WCAG FIX (Skipped Heading Level): Changed h4 → h3 to fix the h2 → h4 jump (skipping h3) that WAVE flagged as "1 Skipped heading level" -->
+                <h3>Ahmed Khan</h3>
+                <p>Villa Owner, DHA Islamabad</p>
+              </div>
+            </div>
           </article>
-          
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              As a first-time property investor, I was nervous about making the right choice. The PakVista team provided excellent guidance and helped me secure a fantastic commercial property in Blue Area. Highly recommended!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/female-avatar.png" alt="Sarah Fatima client photo">
+              </div>
+              <div class="author-info">
+                <!-- WCAG FIX (Skipped Heading Level): Changed h4 → h3 (same fix as above) -->
+                <h3>Sarah Fatima</h3>
+                <p>Commercial Property Investor</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              We've worked with several real estate agents over the years, but PakVista Realty stands out for their market knowledge and honest advice. They helped us sell our old property and find a beautiful new home in Bahria Town.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="assets/images/male-avatar.png" alt="Muhammad Hassan client photo">
+              </div>
+              <div class="author-info">
+                <!-- WCAG FIX (Skipped Heading Level): Changed h4 → h3 (same fix as above) -->
+                <h3>Muhammad Hassan</h3>
+                <p>Homeowner, Bahria Town</p>
+              </div>
+            </div>
+          </article>
+          <!-- WCAG BUG FIX: Removed stray/orphan </article> closing tag that had no matching opening tag -->
+
         </div>
       </div>
     </section>
@@ -366,7 +365,7 @@
           <h3>Contact Info</h3>
           <ul class="footer-links">
             <li><a href="tel:+923007654321">+92 300 7654321</a></li>
-            <li><a href="mailto:info@pakvistarealty.pk">info@pakvistarealty.pk</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#adc4c3cbc2edddccc6dbc4ded9ccdfc8ccc1d9d483ddc6"><span class="__cf_email__" data-cfemail="066f6860694676676d706f7572677463676a727f28766d">[email&#160;protected]</span></a></li>
             <li>45 Blue Area<br>Islamabad, Pakistan</li>
           </ul>
         </div>
@@ -380,7 +379,7 @@
   </footer>
   
   <!-- JavaScript -->
-  <script src="main.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js"></script>
   
 </body>
 </html>
